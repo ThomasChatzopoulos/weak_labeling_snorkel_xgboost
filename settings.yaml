@@ -1,0 +1,72 @@
+## Paths and range of years
+# The path where the results will be stored
+workingPath: 'C:/weak_labeling_snorkel_xgboost/'
+
+# The path where the files, like datasets, are stored.
+filesPath: 'C:/Users/Documents/datasets'
+
+# The first year to consider in the analysis
+firstYear: 2006
+# The last year to consider in the analysis
+lastYear: 2019
+
+## OS environment parameters
+# TensorFlow logging messages. Value 3 is for turning off TensorFlow logging messages
+TF_CPP_MIN_LOG_LEVEL: "3"
+# For reproducibility
+PYTHONHASHSEED: "0"
+
+## Label functions to use
+LFsToUse: [
+    "concept_occurrence_label",
+#    "name_exact",
+    "name_exact_lowercase",
+#    "name_exact_lowercase_no_punc",
+#    "name_exact_lowercase_tokens_no_punc",
+#    "synonyms_exact",
+    "synonyms_lowercase",
+#    "synonyms_lowercase_no_punc",
+#    "synonyms_lowercase_tokens_no_punc",
+#    "name_exact_negation",
+#    "name_exact_lowercase_negation",
+#    "name_exact_lowercase_no_punc_negation",
+#    "name_exact_lowercase_tokens_no_punc_negation",
+#    "synonyms_exact_negation",
+#    "synonyms_lowercase_negation",
+#    "synonyms_lowercase_no_punc_negation",
+#    "synonyms_lowercase_tokens_no_punc_negation"
+]
+
+useAsTrainDataset: "minority_voter"
+#useAsTrainDataset: "majority_voter"
+#useAsTrainDataset: "label_model"
+#useAsTrainDataset: "concept_occurrence"
+
+
+## for k-best label function selection
+findKBestLFs: False
+numOfBestLFs: 5
+
+## for dataset balancing
+balanceDataset: True
+balanceRatio: 5
+
+## for dataset preprocessing
+datasetTextPreprocessing: True
+lowercase: True
+punctuation: True
+stemming: False
+stop_words: True
+
+## for the feature selection in tokens
+predictNumOfFeatures: False
+numOfFeatures: 5000
+folds: 5
+
+## xgboost parameters
+booster: 'gbtree'
+eta: 0.3
+max_depth: 2
+n_estimators: 800
+gamma: 0.04
+reg_lambda: 1
