@@ -29,7 +29,7 @@ def connectToServer():
     config = {
         'user': umls_settings["dbuser"],
         'password': umls_settings["dbpass"],
-        'host': "192.168.11.135",
+        'host': "192.168.136.111",
         'database': "umls_mesh2019",
     }
     try:
