@@ -30,7 +30,7 @@ The semantic indexing of the biomedical literature in MEDLINE/PubMed is performe
 
 <div style="display: flex; align-items: center;">
 
-  <img src="C:\Users\chatz\Documents\0_projects\weak_labeling_snorkel\images\pubmed_mesh.png" alt="icon" width="300" style="margin-right: 15px;"/>
+  <img src="images\pubmed_mesh.png" alt="icon" width="300" style="margin-right: 15px;"/>
 
   <div>
     Semantic indexing of biomedical literature refers to the annotation of articles with labels from a thesaurus containing biomedical terminology. As database of articles-citations is used the <b>MEDLINE/PubMed</b>, in which the articles are indexed with topic descriptors from the <b>Medical Subject Headings (MeSH)</b> thesaurus.
@@ -43,7 +43,7 @@ The work is structured as follows:
 
 <div style="display: flex; align-items: center;">
 
-  <img src="C:\Users\chatz\Documents\0_projects\weak_labeling_snorkel\images\dataset_icon.png" alt="icon" width="50" style="margin-right: 15px;"/>
+  <img src="images\dataset_icon.png" alt="icon" width="50" style="margin-right: 15px;"/>
 
   <div>
     <b> 1. Dataset development:</b> The dataset creation based on a retrospective scenario, using the concept-occurrence in the title or abstract of an article as heuristic. <br> 
@@ -53,7 +53,7 @@ The work is structured as follows:
 
 <div style="display: flex; align-items: center;">
 
-  <img src="C:\Users\chatz\Documents\0_projects\weak_labeling_snorkel\images\dataset_enhancement_icon.png" alt="icon" width="50" style="margin-right: 15px;"/>
+  <img src="images\dataset_enhancement_icon.png" alt="icon" width="50" style="margin-right: 15px;"/>
 
   <div>
     <br>
@@ -63,7 +63,7 @@ The work is structured as follows:
 
 <div style="display: flex; align-items: center;">
 
-  <img src="C:\Users\chatz\Documents\0_projects\weak_labeling_snorkel\images\ML_icon.png" alt="icon" width="50" style="margin-right: 15px;"/>
+  <img src="images\ML_icon.png" alt="icon" width="50" style="margin-right: 15px;"/>
 
   <div>
     <br>
