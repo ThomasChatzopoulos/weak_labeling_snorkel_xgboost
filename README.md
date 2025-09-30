@@ -33,7 +33,7 @@ Semantic indexing of biomedical literature refers to the annotation of articles 
 
 <figure>
     <img src="/images\pubmed_mesh.png"
-         alt="Arcticles annotation">
+         alt="Articles annotation">
     <figcaption>Annotation of PubMed articles with descriptors from the MeSH treasure.</figcaption>
 </figure>
 
@@ -43,12 +43,12 @@ Among other factors, the considerable growth in the volume of bibliographic refe
 The work is structured as follows:
 
 
-![](images\dataset_icon.png){: style="float: left", width="60"} **1. Dataset development:** The dataset creation is based on a retrospective scenario, using the concept-occurrence in the title or abstract of an article as a heuristic.
+**1. Dataset development:** The dataset creation is based on a retrospective scenario, using the concept-occurrence in the title or abstract of an article as a heuristic.
 An evaluation of a previous method [4] using the appearance-concept heuristic was also performed on a small dataset.
 
-![](images\dataset_enhancement_icon.png){: style="float: left", width="60"} **2. Dataset enhancement:** The enhancement of the dataset is achieved by combining a number of heuristics, beyond the concept occurrence.
+**2. Dataset enhancement:** The dataset enhancement is achieved by combining a number of heuristics, beyond the concept occurrence.
 
-![](images\ML_icon.png){: style="float: left", width="60"}**3. ML models development:** The development of machine learning models (XGBoost & Logistic Regression) for automated suggestion of fine-grained headings in biomedical literature, instead of coarse-grained ones.
+**3. ML models development:** The development of machine learning models (XGBoost & Logistic Regression) for automated suggestion of fine-grained headings in biomedical literature, instead of coarse-grained ones.
 
 ---
 
