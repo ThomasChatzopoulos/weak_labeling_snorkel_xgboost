@@ -12,11 +12,11 @@ In the last part of the paper, [Anastasios Nentidis](https://www.iit.demokritos.
 
 Below, I summarize the work with brief explanations in relation to the repository code. For more details and analysis, please refer to the above references and sources.
 
-### Requriments
+### Requirements
 
-These scripts are written in **Python 3.8.2**.
-Libraries and versions required are listed in [**requirements.txt**](https://github.com/ThomasChatzopoulos/weak_labeling_snorkel_xgboost/blob/main/requirements.txt).
-Available disk space for the entire project: **at least 350 GB**
+ - These scripts are written in **Python 3.8.2**.  
+ - Libraries and versions required are listed in [**requirements.txt**](https://github.com/ThomasChatzopoulos/weak_labeling_snorkel_xgboost/blob/main/requirements.txt).  
+ - Available disk space for the entire project: **at least 350 GB**.
 
 ---
 
@@ -24,52 +24,35 @@ Available disk space for the entire project: **at least 350 GB**
 
 ### Abstract
 
-The semantic indexing of the biomedical literature in MEDLINE/PubMed is performed with descriptors from the MeSH thesaurus, which represent specific concepts of the biomedical community. Synonymous or related biomedical concepts are often grouped together and represented only by a coarse-grained descriptor, based on which the corresponding bibliography is also indexed. In this work, a method is developed for the automated improvement of biomedical concepts by exploring machine learning approaches. Due to the absence of labeled data, weak supervision techniques are used based on the occurrence of the concept in the text of the articles. The evaluation of the method is performed retrospectively, on data for concepts that have been gradually promoted to fine-grained descriptor in the MeSH thesaurus and thus used to annotate and index the articles. Although concept occurrence in article text is a powerful heuristic for fine-grained article indexing, experiments show that combining it with other, simpler heuristics can in some cases further strengthen it. Using heuristics to develop weakly supervised machine learning models can further improves the results. Overall, the proposed method succeeds in improving the indexing of biomedical literature to fine-grained concepts in an automated manner for most of the use cases.
+The semantic indexing of the biomedical literature in MEDLINE/PubMed is performed with descriptors from the MeSH treasure, which represent specific concepts of the biomedical community. Synonymous or related biomedical concepts are often together and represented only by a coarse-grained descriptor, based on which the corresponding bibliography is also indexed. In this work, a method is developed for the automated improvement of biomedical concepts by exploring machine learning approaches. Due to the absence of labeled data, weak supervision techniques are used based on the occurrence of the concept in the text of the articles. The evaluation of the method is performed retrospectively, on data for concepts that have been gradually promoted to fine-grained descriptors in the MeSH treasure and thus used to annotate and index the articles. Although concept occurrence in article text is a powerful heuristic for fine-grained article indexing, experiments show that combining it with other, simpler heuristics can, in some cases, further strengthen it. Using heuristics to develop weakly supervised machine learning models can further improve the results. Overall, the proposed method succeeds in improving the indexing of biomedical literature to fine-grained concepts in an automated manner for most of the use cases.
 
-### The parts of the work
+### Introduction
 
-<div style="display: flex; align-items: center;">
+Semantic indexing of biomedical literature refers to the annotation of articles with labels from a treasure containing biomedical terminology. As database of articles-citations is used the [MEDLINE/PubMed](https://pubmed.ncbi.nlm.nih.gov/about/), in which the articles are indexed with topic descriptors from the [Medical Subject Headings (MeSH)](https://www.nlm.nih.gov/mesh/meshhome.html) treasure.
 
-  <img src="images\pubmed_mesh.png" alt="icon" width="300" style="margin-right: 15px;"/>
 
-  <div>
-    Semantic indexing of biomedical literature refers to the annotation of articles with labels from a thesaurus containing biomedical terminology. As database of articles-citations is used the <b>MEDLINE/PubMed</b>, in which the articles are indexed with topic descriptors from the <b>Medical Subject Headings (MeSH)</b> thesaurus.
-  </div>
-</div>
+<figure>
+    <img src="/images\pubmed_mesh.png"
+         alt="Arcticles annotation">
+    <figcaption>Annotation of PubMed articles with descriptors from the MeSH treasure.</figcaption>
+</figure>
+
 
 Among other factors, the considerable growth in the volume of bibliographic references in recent years has accentuated the necessity for annotating articles with fine-grained labels (MeSH Headings), in contrast to the previously utilized coarse-grained ones. Furthermore, there is a growing imperative to advance the automation of annotation and related processes.
 
 The work is structured as follows:
 
-<div style="display: flex; align-items: center;">
 
-  <img src="images\dataset_icon.png" alt="icon" width="50" style="margin-right: 15px;"/>
+![](images\dataset_icon.png){: style="float: left", width="60"} **1. Dataset development:** The dataset creation is based on a retrospective scenario, using the concept-occurrence in the title or abstract of an article as a heuristic.
+An evaluation of a previous method [4] using the appearance-concept heuristic was also performed on a small dataset.
 
-  <div>
-    <b> 1. Dataset development:</b> The dataset creation based on a retrospective scenario, using the concept-occurrence in the title or abstract of an article as heuristic. <br> 
-    An evaluation of a previous method [4] using the appearance-concept heuristic was also performed on a small dataset.
-  </div>
-</div>
+![](images\dataset_enhancement_icon.png){: style="float: left", width="60"} **2. Dataset enhancement:** The enhancement of the dataset is achieved by combining a number of heuristics, beyond the concept occurrence.
 
-<div style="display: flex; align-items: center;">
+![](images\ML_icon.png){: style="float: left", width="60"}**3. ML models development:** The development of machine learning models (XGBoost & Logistic Regression) for automated suggestion of fine-grained headings in biomedical literature, instead of coarse-grained ones.
 
-  <img src="images\dataset_enhancement_icon.png" alt="icon" width="50" style="margin-right: 15px;"/>
+---
 
-  <div>
-    <br>
-    <b> 2. Dataset enhancement:</b> The enhancement of the dataset is achieved by combining a number of heuristics, beyond the concept occurrence.
-  </div>
-</div>
-
-<div style="display: flex; align-items: center;">
-
-  <img src="images\ML_icon.png" alt="icon" width="50" style="margin-right: 15px;"/>
-
-  <div>
-    <br>
-    <b> 3. ML models development:</b> The development of a machine learning models (XGBoost & Logistic Regression) for automated suggestion of fine-grained headings in biomedical literature, instead of coarse-grained ones.
-  </div>
-</div>
+### The parts of the work
 
 ---
 
