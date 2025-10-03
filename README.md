@@ -20,21 +20,21 @@ Below, I summarize the work with brief explanations in relation to the repositor
 
 ---
 
-## The methods & how to run
+## Introduction
 
 ### Abstract
 
 The semantic indexing of the biomedical literature in MEDLINE/PubMed is performed with descriptors from the MeSH treasure, which represent specific concepts of the biomedical community. Synonymous or related biomedical concepts are often together and represented only by a coarse-grained descriptor, based on which the corresponding bibliography is also indexed. In this work, a method is developed for the automated improvement of biomedical concepts by exploring machine learning approaches. Due to the absence of labeled data, weak supervision techniques are used based on the occurrence of the concept in the text of the articles. The evaluation of the method is performed retrospectively, on data for concepts that have been gradually promoted to fine-grained descriptors in the MeSH treasure and thus used to annotate and index the articles. Although concept occurrence in article text is a powerful heuristic for fine-grained article indexing, experiments show that combining it with other, simpler heuristics can, in some cases, further strengthen it. Using heuristics to develop weakly supervised machine learning models can further improve the results. Overall, the proposed method succeeds in improving the indexing of biomedical literature to fine-grained concepts in an automated manner for most of the use cases.
 
-### Introduction
+### Overview
 
 Semantic indexing of biomedical literature refers to the annotation of articles with labels from a treasure containing biomedical terminology. As database of articles-citations is used the [MEDLINE/PubMed](https://pubmed.ncbi.nlm.nih.gov/about/), in which the articles are indexed with topic descriptors from the [Medical Subject Headings (MeSH)](https://www.nlm.nih.gov/mesh/meshhome.html) treasure.
 
 
 <figure>
-    <img src="/images\pubmed_mesh.png"
+    <img src="/images/pubmed_mesh.png"
          alt="Articles annotation">
-    <figcaption>Annotation of PubMed articles with descriptors from the MeSH treasure.</figcaption>
+    <figcaption>Fig 1. Annotation of PubMed articles with descriptors from the MeSH treasure.</figcaption>
 </figure>
 
 
@@ -42,17 +42,55 @@ Among other factors, the considerable growth in the volume of bibliographic refe
 
 The work is structured as follows:
 
-
 **1. Dataset development:** The dataset creation is based on a retrospective scenario, using the concept-occurrence in the title or abstract of an article as a heuristic.
 An evaluation of a previous method [4] using the appearance-concept heuristic was also performed on a small dataset.
 
-**2. Dataset enhancement:** The dataset enhancement is achieved by combining a number of heuristics, beyond the concept occurrence.
+**2. Weakly-supervised ataset enhancement:** The weakly-supervised enhancement of the dataset is achieved by combining a number of heuristics, beyond the concept occurrence.
 
 **3. ML models development:** The development of machine learning models (XGBoost & Logistic Regression) for automated suggestion of fine-grained headings in biomedical literature, instead of coarse-grained ones.
 
+<figure>
+    <img src="/images/method_overview.png"
+         alt="Articles annotation">
+    <figcaption>Fig 2. Work overview: (1) The large-scale ground-truth dataset development based on the <i>Retrospective Beyond MeSH</i> method [4], the weakly-labeled training dataset development with concept-occurence heuristic, (2) the weakly-supervised enhacement of the datasets using dictionary-based approached, and finally (3) the Machine Learning models development.</figcaption>
+</figure>
+
 ---
 
-### The parts of the work
+## The methods & how to run
+
+### 1. Dataset development
+
+The analysis of this part has been carried out in [another repository](https://github.com/ThomasChatzopoulos/MeSH_retrospective_dataset). 
+The implementation of the development of the datasets has been carried out in **Java**, while the datasets are stored in **JSON** format.
+
+In summary:
+i. For a given range of years, the **MeSH versions** are compared and the concepts that have been promoted to fine-grained descriptors are returned.
+
+ii. The use-cases are selected, applying some constraints so that the new descriptors express a concept in a more detailed, but distinct way, compared to the previous version of the MeSH treasure.
+
+iii. The relevant articles are selected; for the training dataset, the **Concept-Οccurrence (CO) heuristic** in the title or abstract is used, while the articles of test dataset are already strongly indexed with the desired concept _(ground-truth data)_.
+
+An example of indexing with the CO heuristic is described in Fig. 3, while a portion of a dataset is captured in Fig. 4.
+
+Note: this is a multi-label problem.
+
+<figure>
+    <img src="/images/concept-occurence.png"
+         alt="Articles annotation">
+    <figcaption>Fig 3. The CO label of the article with PMID: 15855629, which was published in PubMed in 2004 and is indexed under the "Dolphins" MeSH Heading, is the descriptor “Bottle-Nosed Dolphin”, which belongs to the detailed descriptors of 2006, and is also identified as a concept in the text of the article. The concepts of the article are identified using the MetaMap tool.</figcaption>
+</figure>
+
+<figure>
+    <img src="/images/json_example.png"
+         alt="Articles annotation">
+    <figcaption>Fig 4. Article with its weak label in the training dataset in json format.</figcaption>
+</figure>
+
+
+### 2. Weakly-supervised dataset enhancement
+
+### 3. ML models development
 
 ---
 
